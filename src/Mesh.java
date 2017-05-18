@@ -15,7 +15,7 @@ public class Mesh {
 	
 	public boolean pOnMesh(int x, int y){
 		for(Point point: points){
-			if(point.x == x && point.y == y){
+			if(point.x2D == x && point.y2D == y){
 				return true;
 			}
 		}
@@ -26,18 +26,18 @@ public class Mesh {
 		for(Point point: points){
 			// Rotate on x-axis
 			if(rX > 0){
-				point.y = (int) ((point.y*Math.cos(rX)) - (point.z*Math.sin(rX)));
-				point.z = (int) ((point.y*Math.sin(rX)) + (point.z*Math.cos(rX)));
+				point.y = ((point.y*Math.cos(rX)) - (point.z*Math.sin(rX)));
+				point.z = ((point.y*Math.sin(rX)) + (point.z*Math.cos(rX)));
 			}
 			// Rotate on y-axis
 			if(rY > 0){
-				point.z = (int) ((point.z*Math.cos(rY)) - (point.z*Math.sin(rY)));
-				point.x = (int) ((point.x*Math.sin(rY)) + (point.x*Math.cos(rY)));
+				point.z = ((point.z*Math.cos(rY)) - (point.x*Math.sin(rY)));
+				point.x = ((point.z*Math.sin(rY)) + (point.x*Math.cos(rY)));
 			}
 			// Rotate on z-axis
 			if(rZ > 0){
-				point.x = (int) ((point.x*Math.cos(rZ)) - (point.x*Math.sin(rZ)));
-				point.y = (int) ((point.y*Math.sin(rZ)) + (point.z*Math.cos(rZ)));
+				point.x = ((point.x*Math.cos(rZ)) - (point.y*Math.sin(rZ)));
+				point.y = ((point.x*Math.sin(rZ)) + (point.y*Math.cos(rZ)));
 			}
 		}
 	}
